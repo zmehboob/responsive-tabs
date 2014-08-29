@@ -1,0 +1,233 @@
+@import 'normalize';
+
+$teal : #56b3b8;
+$bg_teal: #052e31;
+
+$portrait: "only screen and (max-width : 320px)";
+
+$landscape: "only screen and (min-width : 479px)";
+$desktop: "only screen and (min-width : 899px)";
+
+$vinyl: "vinyl",sans-serif;
+$toe: 'TheOnlyException', cursive;
+$arial: 'Arial', sans-serif;
+
+
+body{
+	background: #e7e7e7;
+	padding-top: 150px;
+	
+}
+
+ul, li, h1, h2, h3, h4{
+	font-size: inherit;
+	padding: 0;
+	margin: 0;
+}
+
+
+
+#accordianTabModule{
+	position: relative;
+		width: 68.75%;
+		margin: 0 auto;
+
+	@media #{$desktop}{
+		
+		width: 735px;
+	}
+
+	#tab_nav{
+		display: none;
+
+		@media #{$desktop}{
+		
+			display: block;
+			position: relative;
+			z-index: 99;
+			width: 100%;
+			height: 55px;
+
+			li{
+				list-style-type: none;
+				float: left;
+				background: $bg_teal; //background teal
+				height: 55px;
+				width: 143px;
+				margin: 0 5px 0 0px;
+				cursor: pointer;
+				color: #00696e; //dark teal
+				line-height: 55px;
+				text-align: center;
+				font-size: 23px;
+
+				&:hover{
+					color: white;
+					
+					&.active{
+						color: #00696E;
+					}
+				}
+
+				&.active{
+					background: white;
+					cursor: pointer;
+				}
+
+				&:last-child{
+					margin-right: 0;
+				}
+
+				&:first-child{
+					 display: block;
+				}
+
+				
+			}
+		}
+
+	}
+
+	#tabs{
+		position: relative;
+		z-index: 90;
+		overflow: hidden;
+
+		
+		@media #{$desktop}{	
+			overflow: visible;
+			height: 340px;
+		}
+
+		li{
+			position: relative;
+			margin: 0 0 5px 0;
+			//height: 30px;
+			width: 100%;
+			overflow: hidden;				
+			z-index: 8; 
+			background: $teal;
+
+			@media #{$desktop}{	
+				position: absolute;
+				list-style-type: none;
+				top: 0;
+				left: 0;	
+				height: 340px;
+				width: 100%;
+
+				
+				&:first-child{
+					.tab-content{
+						display: block;
+					}
+				}
+			
+
+			}
+
+			h2{
+				display: block;
+				position: relative;
+				height: 30px;
+
+				margin: 0 auto;
+				cursor: pointer;
+				background: #052E31;
+				text-align: center;
+				font-size: 18px;
+				line-height: 32px;
+				color: #00696e;
+				
+				@media #{$desktop}{	
+					display: none;
+					
+				}
+
+			}
+
+			.tab-content{
+
+				position: relative;
+				top: 0;
+				left: 0;
+				width: 100%;
+				height: auto;
+				display: none;
+				margin-top: 30px;
+				background: $teal;
+
+				@media #{$desktop}{
+				
+					position: absolute;
+					top: 0;
+					left: 0;
+					width: 100%;
+					height: auto;
+					display: none;
+					margin-top: 30px;
+				}
+
+				h2{
+					font-size: 22px;
+					background: none;
+					height: auto;
+					cursor: default;
+					margin: 0 auto;
+					line-height: 22px;
+					color: white;
+
+					@media #{$desktop}{
+						display: block;
+						text-align: left;
+						font-size: 34px;
+						line-height: 34px;
+						margin: 80px 0 5px 0;
+						width: 290px;
+					}
+				}
+				h3{
+					position: relative;
+					font-family: $arial;
+					font-size: 15px;
+					text-align: center;
+					
+					margin: 0 auto;
+
+					@media #{$desktop}{
+						text-align: left;
+						margin: 0 0 15px 0;
+						font-size: 14px;
+					}
+				}
+
+			}
+
+
+			&.sub_active{
+				z-index: 9;
+
+				>h2{
+					background: white;
+				}
+
+			}
+
+
+			&.active{	
+				z-index: 10;
+				
+				>h2{
+					background: white;
+					
+				}
+
+			}
+
+			
+		}
+	}
+
+}	
+
+
